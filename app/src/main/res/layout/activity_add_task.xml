@@ -1,0 +1,184 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
+    android:layout_height="match_parent" android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:background="@color/lblue"
+    tools:context="com.example.nifras.pias.AddTaskActivity">
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:weightSum="1"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentTop="true"
+        android:id="@+id/linearLayout">
+
+        <View
+            android:layout_width="fill_parent"
+            android:layout_height="2dp"
+            android:layout_marginBottom="1dp"
+            android:background="#00C5CD"
+            android:layout_weight="0.15" />
+
+
+        <TextView
+            android:id="@+id/addnew"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Add new..."
+            android:textSize="40dp"
+            android:gravity="left"
+            android:textColor="#ffffff"
+            android:layout_marginTop="-5dp"
+            android:textStyle="bold"
+            android:layout_marginBottom="20dp"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:layout_weight="0.19" />
+
+        <EditText
+            android:background="@drawable/outline"
+
+            android:id="@+id/task"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:ems="10"
+            android:gravity="left"
+            android:hint="Task"
+            android:layout_marginRight="10dp"
+            android:layout_marginLeft="5dp"
+            android:layout_marginTop="-5dp"
+            android:textColorHint="#FFF"
+            android:textColor="@color/white"
+            android:textSize="35dp"
+            android:paddingTop="5dp"
+            android:paddingLeft="5dp"
+
+            android:inputType="text"
+            android:elegantTextHeight="false"
+
+            >
+        </EditText>
+
+        <EditText
+            android:background="@drawable/outline"
+            android:id="@+id/description"
+            android:layout_width="match_parent"
+            android:layout_height="130dp"
+            android:ems="10"
+            android:gravity="left"
+            android:hint=" Task descripriton"
+            android:layout_marginRight="10dp"
+            android:layout_marginLeft="5dp"
+            android:layout_marginTop="12dp"
+            android:paddingTop="5dp"
+            android:paddingLeft="5dp"
+            android:textColorHint="#FFF"
+            android:textColor="@color/white"
+            android:textSize="20dp"
+            android:inputType="textMultiLine"/>
+
+
+        <RelativeLayout
+            android:id = "@+id/reminder_layout"
+            android:layout_width="fill_parent"
+            android:layout_height="45dp"
+            android:layout_marginTop="15dp"
+            android:layout_marginRight="10dp"
+            android:layout_marginLeft="5dp"
+            android:background="@drawable/reminder">
+
+            <ImageView
+
+                android:layout_width="wrap_content"
+                android:layout_height="40dp"
+                android:src="@raw/plus"
+                android:id="@+id/imageView"
+                android:layout_alignParentBottom="true"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentStart="true" />
+            <Button
+
+                android:text="Reminder"
+                android:textColor="@color/lblue"
+                android:id="@+id/reminder"
+                android:layout_width="wrap_content"
+                android:layout_height="40dp"
+                android:textSize="25dp"
+                android:background="@android:color/transparent"
+                android:layout_alignTop="@+id/time"
+                android:layout_toLeftOf="@+id/location"
+                android:layout_toStartOf="@+id/location"
+                android:layout_marginRight="13dp"
+                android:layout_marginEnd="13dp" />
+
+            <Button
+                android:text="location"
+                android:textSize="15dp"
+                android:textColor="@color/lblue"
+                android:id="@+id/location"
+                android:layout_width="80dp"
+                android:layout_height="40dp"
+                android:drawableLeft="@raw/location"
+                android:background="@android:color/transparent"
+                android:layout_alignTop="@+id/reminder"
+                android:layout_toLeftOf="@+id/time"
+                android:layout_toStartOf="@+id/time" />
+
+            <Button
+                android:text="time"
+                android:textSize="15dp"
+                android:textColor="@color/lblue"
+
+                android:id="@+id/time"
+                android:layout_width="70dp"
+                android:layout_height="40dp"
+                android:drawableLeft="@raw/time"
+
+                android:background="@android:color/transparent"
+                android:layout_centerVertical="true"
+                android:layout_alignParentRight="true"
+                android:layout_alignParentEnd="true" />
+
+
+        </RelativeLayout>
+
+        <Button
+            android:id="@+id/register"
+            android:layout_width="fill_parent"
+            android:layout_height="45dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginRight="25dp"
+            android:layout_marginLeft="25dp"
+            android:background="@drawable/login_button"
+            android:textColor="#fff"
+            android:text="pzx"
+            android:textSize="25dp"/>
+
+
+    </LinearLayout>
+
+
+<ImageButton
+    android:id="@+id/go_back"
+    android:background="@android:color/transparent"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:src = "@raw/pl"
+    android:layout_alignParentBottom="true"
+    android:layout_toLeftOf="@+id/ok"
+    android:layout_toStartOf="@+id/ok" />
+
+    <ImageButton
+        android:id = "@+id/ok"
+        android:background="@android:color/transparent"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src = "@raw/ok"
+        android:layout_alignParentBottom="true"
+        android:layout_alignRight="@+id/linearLayout"
+        android:layout_alignEnd="@+id/linearLayout" />
+</RelativeLayout>
+

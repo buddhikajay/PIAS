@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+
+
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:layout_marginTop="15dp"
+    android:layout_marginRight="10dp"
+    android:layout_marginLeft="5dp"
+    android:background="@color/lblue"
+    android:orientation="horizontal">
+
+    <RelativeLayout
+
+        android:id = "@+id/reminder_layout"
+        android:layout_width="fill_parent"
+        android:layout_height="250dp"
+        android:layout_marginTop="15dp"
+        android:layout_marginRight="10dp"
+        android:layout_marginLeft="5dp"
+        android:background="@drawable/location">
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="40dp"
+            android:src="@raw/plus"
+            android:id="@+id/imageView"
+            android:layout_above="@+id/reminder"
+            android:layout_toLeftOf="@+id/reminder"
+            android:layout_toStartOf="@+id/reminder" />
+        <Button
+            android:text="Reminder"
+            android:textColor="@color/lblue"
+            android:id="@+id/reminder"
+            android:layout_width="wrap_content"
+            android:layout_height="40dp"
+            android:textSize="25dp"
+            android:background="@android:color/transparent"
+            android:layout_above="@+id/time"
+            android:layout_centerHorizontal="true" />
+
+        <Button
+            android:text="location"
+            android:textSize="15dp"
+            android:textColor="@color/lblue"
+            android:id="@+id/location"
+            android:layout_width="80dp"
+            android:layout_height="40dp"
+            android:drawableLeft="@raw/location"
+            android:background="@android:color/transparent"
+            android:layout_alignTop="@+id/reminder"
+            android:layout_toLeftOf="@+id/time"
+            android:layout_toStartOf="@+id/time" />
+
+        <Button
+            android:text="time"
+            android:textSize="15dp"
+            android:textColor="@color/lblue"
+
+            android:id="@+id/time"
+            android:layout_width="70dp"
+            android:layout_height="40dp"
+            android:drawableLeft="@raw/time"
+
+            android:background="@android:color/transparent"
+            android:layout_centerVertical="true"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentEnd="true" />
+
+
+    </RelativeLayout>
+    </RelativeLayout>
+
