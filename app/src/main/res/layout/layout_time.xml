@@ -1,77 +1,128 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-
-
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="260dp"
+    android:layout_marginTop="20dp"
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
     android:paddingBottom="@dimen/activity_vertical_margin"
-    android:layout_width="fill_parent"
-    android:layout_height="fill_parent"
-    android:layout_marginTop="15dp"
-    android:layout_marginRight="10dp"
-    android:layout_marginLeft="5dp"
-    android:background="@color/lblue"
+    android:id="@+id/time_layout"
+    android:background="@drawable/location"
     android:orientation="horizontal">
 
-    <RelativeLayout
 
-        android:id = "@+id/reminder_layout"
+    <ImageView
+
+        android:layout_width="wrap_content"
+        android:layout_height="40dp"
+        android:src="@raw/plus"
+        android:id="@+id/imageView"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
+    <Button
+
+        android:text="Reminder"
+        android:textColor="@color/lblue"
+        android:id="@+id/reminder"
+        android:layout_width="wrap_content"
+        android:layout_height="40dp"
+        android:textSize="25dp"
+        android:background="@android:color/transparent"
+        android:layout_alignTop="@+id/imageView"
+        android:layout_toRightOf="@+id/imageView"
+        android:layout_toEndOf="@+id/imageView" />
+
+    <Button
+        android:text="location"
+        android:textSize="15dp"
+        android:textColor="@color/lblue"
+        android:id="@+id/location"
+        android:layout_width="80dp"
+        android:layout_height="40dp"
+        android:drawableLeft="@raw/location"
+        android:background="@android:color/transparent"
+        android:layout_alignTop="@+id/reminder"
+        android:layout_toLeftOf="@+id/time"
+        android:layout_toStartOf="@+id/time" />
+
+    <Button
+        android:text="time"
+        android:textSize="15dp"
+        android:textColor="@color/lblue"
+
+        android:id="@+id/time"
+        android:layout_width="70dp"
+        android:layout_height="40dp"
+        android:drawableLeft="@raw/time"
+
+        android:background="@android:color/transparent"
+        android:layout_alignTop="@+id/location"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true" />
+
+
+    <GridLayout
+        android:columnCount="3"
         android:layout_width="fill_parent"
-        android:layout_height="250dp"
-        android:layout_marginTop="15dp"
-        android:layout_marginRight="10dp"
-        android:layout_marginLeft="5dp"
-        android:background="@drawable/location">
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/time_cancel"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true">
 
-        <ImageView
+        <Spinner
+            android:id="@+id/year"
+
             android:layout_width="wrap_content"
-            android:layout_height="40dp"
-            android:src="@raw/plus"
-            android:id="@+id/imageView"
-            android:layout_above="@+id/reminder"
-            android:layout_toLeftOf="@+id/reminder"
-            android:layout_toStartOf="@+id/reminder" />
-        <Button
-            android:text="Reminder"
-            android:textColor="@color/lblue"
-            android:id="@+id/reminder"
+            android:layout_height="wrap_content" />
+
+        <Spinner
+            android:id="@+id/month"
+
             android:layout_width="wrap_content"
-            android:layout_height="40dp"
-            android:textSize="25dp"
-            android:background="@android:color/transparent"
-            android:layout_above="@+id/time"
-            android:layout_centerHorizontal="true" />
+            android:layout_height="wrap_content" />
+        <Spinner
+            android:id="@+id/date"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+        <Spinner
+            android:id="@+id/hour"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+        <Spinner
+            android:id="@+id/min"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+        <Spinner
+            android:id="@+id/ampm"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
 
-        <Button
-            android:text="location"
-            android:textSize="15dp"
-            android:textColor="@color/lblue"
-            android:id="@+id/location"
-            android:layout_width="80dp"
-            android:layout_height="40dp"
-            android:drawableLeft="@raw/location"
-            android:background="@android:color/transparent"
-            android:layout_alignTop="@+id/reminder"
-            android:layout_toLeftOf="@+id/time"
-            android:layout_toStartOf="@+id/time" />
+    </GridLayout>
 
-        <Button
-            android:text="time"
-            android:textSize="15dp"
-            android:textColor="@color/lblue"
-
-            android:id="@+id/time"
-            android:layout_width="70dp"
-            android:layout_height="40dp"
-            android:drawableLeft="@raw/time"
-
-            android:background="@android:color/transparent"
-            android:layout_centerVertical="true"
-            android:layout_alignParentRight="true"
-            android:layout_alignParentEnd="true" />
+    <ImageButton
+        android:id="@+id/time_cancel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@android:color/transparent"
+        android:src="@raw/okk"
+        android:layout_alignParentBottom="true"
+        android:layout_toLeftOf="@+id/time"
+        android:layout_toStartOf="@+id/time" />
+    <ImageButton
+        android:id="@+id/time_ok"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@android:color/transparent"
+        android:src="@raw/right"
+        android:layout_alignBottom="@+id/time_cancel"
+        android:layout_alignRight="@+id/time"
+        android:layout_alignEnd="@+id/time"
+        android:layout_alignTop="@+id/time_cancel" />
 
 
-    </RelativeLayout>
-    </RelativeLayout>
+
+</RelativeLayout>
 
