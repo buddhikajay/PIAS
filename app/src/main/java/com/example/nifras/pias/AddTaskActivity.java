@@ -127,9 +127,9 @@ public class AddTaskActivity extends ActionBarActivity {
         parent.addView(C, index);
 
         setParam();
+        location = (Button) findViewById(R.id.location);
+        time = (Button) findViewById(R.id.time);
         setTypeFace();
-
-
     }
 
     public void setParam(){
