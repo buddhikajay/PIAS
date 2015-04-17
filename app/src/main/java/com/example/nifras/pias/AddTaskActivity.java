@@ -3,6 +3,7 @@ package com.example.nifras.pias;
 import android.graphics.Typeface;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -15,6 +16,11 @@ import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.google.android.gms.maps.GoogleMap;
+import com.google.android.gms.maps.MapFragment;
+import com.google.android.gms.maps.model.LatLng;
+import com.google.android.gms.maps.model.MarkerOptions;
+
 
 public class AddTaskActivity extends ActionBarActivity {
 
@@ -25,7 +31,7 @@ public class AddTaskActivity extends ActionBarActivity {
     TextView addnew;
     ImageButton ok,cancel;
     Spinner year,month, date, hour,min,ampm;
-
+    GoogleMap googleMap;
     String [] years = {"2015", "2016", "2017"};
     String [] months = {"Jan", "Feb", "March", "Apr", "May", "June", "July", "Aug", "Sept", "Oct", "Nov", "Dec"};
     String [] dates = {"1","2","3","4","5", "6", "7", "8", "9", "10", "11", "12", "13", "14"};
@@ -41,6 +47,9 @@ public class AddTaskActivity extends ActionBarActivity {
         setContentView(R.layout.activity_add_task);
         setParam();
         setTypeFace();
+
+        createMapView();
+        addMarker();
 /*
         time.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -69,6 +78,41 @@ public class AddTaskActivity extends ActionBarActivity {
 
     }
 
+    private void createMapView(){
+        /**
+         * Catch the null pointer exception that
+         * may be thrown when initialising the map
+         */
+        try {
+            if(null == googleMap){
+                googleMap = ((MapFragment) getFragmentManager().findFragmentById(
+                        R.id.mapView)).getMap();
+
+                /**
+                 * If the map is still null after attempted initialisation,
+                 * show an error to the user
+                 */
+                if(null == googleMap) {
+                    Toast.makeText(getApplicationContext(),
+                            "Error creating map", Toast.LENGTH_SHORT).show();
+                }
+            }
+        } catch (NullPointerException exception){
+            Log.e("mapApp", exception.toString());
+        }
+    }
+
+    private void addMarker(){
+
+        /** Make sure that the map has been initialised **/
+        if(null != googleMap){
+            googleMap.addMarker(new MarkerOptions()
+                            .position(new LatLng(0, 0))
+                            .title("Marker")
+                            .draggable(true)
+            );
+        }
+    }
 
     public void setLocation(){
 
