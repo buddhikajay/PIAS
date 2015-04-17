@@ -41,11 +41,13 @@ public class AddTaskActivity extends ActionBarActivity {
         setContentView(R.layout.activity_add_task);
         setParam();
         setTypeFace();
-
+/*
         time.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                setTime();
+//                setTime();
+
+
 
             }
         });
@@ -57,11 +59,11 @@ public class AddTaskActivity extends ActionBarActivity {
         });
 
 
-
+*/
         ok.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                closetime();
+                //closetime();
             }
         });
 
@@ -89,34 +91,23 @@ public class AddTaskActivity extends ActionBarActivity {
     public void setTime(){
         Toast.makeText(getApplicationContext(), "time open",Toast.LENGTH_SHORT).show();
         int optionId = R.layout.layout_time;
-
         View C = findViewById(R.id.reminder_layout);
         ViewGroup parent = (ViewGroup) C.getParent();
         int index = parent.indexOfChild(C);
         parent.removeView(C);
         C = getLayoutInflater().inflate(optionId, parent, false);
         parent.addView(C, index);
+
         setParam();
         setTypeFace();
+/*
 
-        ArrayAdapter<String> year_adapter = new ArrayAdapter<String>(this, android.R.layout.simple_dropdown_item_1line, years);
-        ArrayAdapter<String> month_adapter = new ArrayAdapter<String>(this, android.R.layout.simple_dropdown_item_1line, months);
-        ArrayAdapter<String> date_adapter = new ArrayAdapter<String>(this, android.R.layout.simple_dropdown_item_1line, dates);
-        ArrayAdapter<String> hour_adapter = new ArrayAdapter<String>(this, android.R.layout.simple_dropdown_item_1line, hours);
-        ArrayAdapter<String> min_adapter = new ArrayAdapter<String>(this, android.R.layout.simple_dropdown_item_1line, mins);
-        ArrayAdapter<String> ampm_adapter = new ArrayAdapter<String>(this, android.R.layout.simple_dropdown_item_1line, ampms);
-        year.setAdapter(year_adapter);
-        month.setAdapter(month_adapter);
-        date.setAdapter(date_adapter);
 
-        hour.setAdapter(hour_adapter);
-        min.setAdapter(min_adapter);
-        ampm.setAdapter(ampm_adapter);
+*/
 
     }
 
     public void closetime(){
-
 
         int optionId = R.layout.reminder_button;
         View C = findViewById(R.id.time_layout);
@@ -125,8 +116,9 @@ public class AddTaskActivity extends ActionBarActivity {
         parent.removeView(C);
         C = getLayoutInflater().inflate(optionId, parent, false);
         parent.addView(C, index);
-
         setParam();
+
+
         location = (Button) findViewById(R.id.location);
         time = (Button) findViewById(R.id.time);
         setTypeFace();
@@ -145,12 +137,28 @@ public class AddTaskActivity extends ActionBarActivity {
         remind = (Button) findViewById(R.id.reminder);
         ok = (ImageButton) findViewById(R.id.ok);
         cancel = (ImageButton) findViewById(R.id.cancel);
+
         year = (Spinner) findViewById(R.id.year);
         month = (Spinner) findViewById(R.id.month);
         date = (Spinner) findViewById(R.id.date);
         hour = (Spinner) findViewById(R.id.hour);
         min = (Spinner) findViewById(R.id.min);
         ampm = (Spinner) findViewById(R.id.ampm);
+
+
+        ArrayAdapter<String> year_adapter = new ArrayAdapter<String>(this, android.R.layout.simple_dropdown_item_1line, years);
+        ArrayAdapter<String> month_adapter = new ArrayAdapter<String>(this, android.R.layout.simple_dropdown_item_1line, months);
+        ArrayAdapter<String> date_adapter = new ArrayAdapter<String>(this, android.R.layout.simple_dropdown_item_1line, dates);
+        ArrayAdapter<String> hour_adapter = new ArrayAdapter<String>(this, android.R.layout.simple_dropdown_item_1line, hours);
+        ArrayAdapter<String> min_adapter = new ArrayAdapter<String>(this, android.R.layout.simple_dropdown_item_1line, mins);
+        ArrayAdapter<String> ampm_adapter = new ArrayAdapter<String>(this, android.R.layout.simple_dropdown_item_1line, ampms);
+
+        year.setAdapter(year_adapter);
+        month.setAdapter(month_adapter);
+        date.setAdapter(date_adapter);
+        hour.setAdapter(hour_adapter);
+        min.setAdapter(min_adapter);
+        ampm.setAdapter(ampm_adapter);
 
 
 
@@ -172,6 +180,7 @@ public class AddTaskActivity extends ActionBarActivity {
         remind.setAllCaps(false);
         time.setTypeface(helvetica);
         time.setAllCaps(false);
+
 
 
     }

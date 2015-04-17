@@ -2,7 +2,7 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
 
     android:layout_width="match_parent"
-    android:layout_height="260dp"
+    android:layout_height="200dp"
     android:layout_marginTop="20dp"
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
@@ -12,7 +12,7 @@
     android:background="@drawable/location"
     android:orientation="horizontal">
 
-
+<!--
     <ImageView
 
         android:layout_width="wrap_content"
@@ -62,7 +62,7 @@
         android:layout_alignTop="@+id/location"
         android:layout_alignParentRight="true"
         android:layout_alignParentEnd="true" />
-
+-->
 
     <GridLayout
         android:columnCount="3"
@@ -71,7 +71,7 @@
         android:layout_above="@+id/time_cancel"
         android:layout_centerInParent="true"
 
-        >
+        android:id="@+id/gridLayout">
 
         <Spinner
             android:id="@+id/year"
@@ -109,18 +109,17 @@
         android:background="@android:color/transparent"
         android:src="@raw/okk"
         android:layout_alignParentBottom="true"
-        android:layout_toLeftOf="@+id/time"
-        android:layout_toStartOf="@+id/time" />
+        android:layout_toLeftOf="@+id/time_ok"
+        android:layout_toStartOf="@+id/time_ok" />
     <ImageButton
         android:id="@+id/time_ok"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:background="@android:color/transparent"
         android:src="@raw/right"
-        android:layout_alignBottom="@+id/time_cancel"
-        android:layout_alignRight="@+id/time"
-        android:layout_alignEnd="@+id/time"
-        android:layout_alignTop="@+id/time_cancel" />
+        android:layout_alignParentBottom="true"
+        android:layout_alignRight="@+id/gridLayout"
+        android:layout_alignEnd="@+id/gridLayout" />
 
 
 
