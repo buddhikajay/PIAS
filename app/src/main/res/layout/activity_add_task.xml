@@ -1,5 +1,13 @@
 
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="match_parent"
+    android:layout_alignParentRight="true"
 
+    android:fillViewport="true"
+    android:scrollbars="vertical"
+    android:scrollbarThumbVertical="@color/white"
+    android:id="@+id/scroll">
 <RelativeLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
@@ -12,15 +20,7 @@
     android:background="@color/lblue"
     tools:context="com.example.nifras.pias.AddTaskActivity">
 
-    <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
-        android:layout_width="wrap_content"
-        android:layout_height="match_parent"
-        android:layout_alignParentRight="true"
 
-        android:fillViewport="true"
-        android:scrollbars="vertical"
-        android:scrollbarThumbVertical="@color/white"
-        android:id="@+id/scroll">
     <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -104,17 +104,18 @@
         <include layout="@layout/layout_location"/>
 
     </LinearLayout>
-</ScrollView>
 
-<ImageButton
+
+    <ImageButton
     android:id="@+id/cancel"
     android:background="@android:color/transparent"
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
     android:src = "@raw/pl"
-    android:layout_alignParentBottom="true"
-    android:layout_toLeftOf="@+id/ok"
-    android:layout_toStartOf="@+id/ok" />
+
+        android:layout_alignParentBottom="true"
+        android:layout_toLeftOf="@+id/ok"
+        android:layout_toStartOf="@+id/ok" />
 
     <ImageButton
         android:id = "@+id/ok"
@@ -122,8 +123,12 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:src = "@raw/ok"
+        android:layout_below="@+id/linearLayout"
         android:layout_alignParentBottom="true"
-        android:layout_alignRight="@+id/scroll"
-        android:layout_alignEnd="@+id/scroll" />
+        android:layout_alignRight="@+id/linearLayout"
+        android:layout_alignEnd="@+id/linearLayout" />
+
+
 </RelativeLayout>
 
+    </ScrollView>
