@@ -10,5 +10,7 @@
     <string name="title_activity_to_do">ToDoActivity</string>
     <string name="locaion">location</string>
     <string name="time">time</string>
+    <string name="title_activity_my">MyActivity</string>
+    <string name="title_activity_maps">Map</string>
 
 </resources>

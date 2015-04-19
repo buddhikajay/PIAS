@@ -13,28 +13,54 @@
     android:background="@drawable/location"
     android:orientation="horizontal">
 
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="5dp"
+        android:id="@+id/linearLayout2">
     <EditText
         android:layout_width="220dp"
         android:layout_height="40dp"
-        android:id="@+id/searchView"
+        android:id="@+id/searchLocation"
         android:paddingLeft="5dp"
         android:hint="Search Location"
 
         android:background="@drawable/outline2"
-        android:layout_above="@+id/mapView"
-        android:layout_marginBottom="5dp"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true" />
+
+ />
+    <ImageButton
+        android:id="@+id/searchButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@android:drawable/ic_menu_search"
+        android:background="@android:color/transparent"
+        android:layout_marginLeft="-35dp"
+        android:layout_marginRight="5dp"
+        android:layout_marginTop="3dp"
+        />
+
+    <ImageButton
+        android:id="@+id/searcGPShButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@android:drawable/ic_menu_compass"
+        android:background="@android:color/transparent"
+        android:layout_marginTop="3dp"
+        android:layout_marginLeft="10dp"
+ />
+    </LinearLayout>
 
         <fragment
+
             android:paddingTop="5dp"
             android:paddingLeft="5dp"
             android:id="@+id/mapView"
             android:name="com.google.android.gms.maps.MapFragment"
             android:layout_width="match_parent"
             android:layout_height="180dp"
-            android:layout_above="@+id/location_cancel"
-            android:layout_centerHorizontal="true" />
+            android:layout_below="@+id/linearLayout2"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentEnd="true" />
 
     <ImageButton
         android:id="@+id/location_cancel"

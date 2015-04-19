@@ -29,9 +29,11 @@ public class AddTaskActivity extends ActionBarActivity {
     EditText task;
     Button remind, location, time;
     TextView addnew;
-    ImageButton ok,cancel;
+    ImageButton ok,cancel, search,searchGPS;
     Spinner year,month, date, hour,min,ampm;
-    GoogleMap googleMap;
+    GPSTracker gps;
+    LocationService locationService;
+
     String [] years = {"2015", "2016", "2017"};
     String [] months = {"Jan", "Feb", "March", "Apr", "May", "June", "July", "Aug", "Sept", "Oct", "Nov", "Dec"};
     String [] dates = {"1","2","3","4","5", "6", "7", "8", "9", "10", "11", "12", "13", "14"};
@@ -48,8 +50,6 @@ public class AddTaskActivity extends ActionBarActivity {
         setParam();
         setTypeFace();
 
-        createMapView();
-        addMarker();
 /*
         time.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -69,6 +69,27 @@ public class AddTaskActivity extends ActionBarActivity {
 
 
 */
+        searchGPS.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+
+                // check if GPS enabled
+                if(gps.canGetLocation()){
+
+                    double latitude = gps.getLatitude();
+                    double longitude = gps.getLongitude();
+
+                    // \n is for new line
+                    Toast.makeText(getApplicationContext(), "Your Location is - \nLat: " + latitude + "\nLong: " + longitude, Toast.LENGTH_LONG).show();
+                }else{
+                    // can't get location
+                    // GPS or Network is not enabled
+                    // Ask user to enable GPS/network in settings
+                    gps.showSettingsAlert();
+                }
+            }
+        });
         ok.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -78,41 +99,6 @@ public class AddTaskActivity extends ActionBarActivity {
 
     }
 
-    private void createMapView(){
-        /**
-         * Catch the null pointer exception that
-         * may be thrown when initialising the map
-         */
-        try {
-            if(null == googleMap){
-                googleMap = ((MapFragment) getFragmentManager().findFragmentById(
-                        R.id.mapView)).getMap();
-
-                /**
-                 * If the map is still null after attempted initialisation,
-                 * show an error to the user
-                 */
-                if(null == googleMap) {
-                    Toast.makeText(getApplicationContext(),
-                            "Error creating map", Toast.LENGTH_SHORT).show();
-                }
-            }
-        } catch (NullPointerException exception){
-            Log.e("mapApp", exception.toString());
-        }
-    }
-
-    private void addMarker(){
-
-        /** Make sure that the map has been initialised **/
-        if(null != googleMap){
-            googleMap.addMarker(new MarkerOptions()
-                            .position(new LatLng(0, 0))
-                            .title("Marker")
-                            .draggable(true)
-            );
-        }
-    }
 
     public void setLocation(){
 
@@ -172,7 +158,7 @@ public class AddTaskActivity extends ActionBarActivity {
         fontPath = "fonts/helvetica.otf";
         fontPath2 = "fonts/bold.otf";
 
-
+        locationService = new LocationService();
         addnew = (TextView) findViewById(R.id.addnew);
         task = (EditText) findViewById(R.id.task);
         task_description = (EditText) findViewById(R.id.description);
@@ -181,7 +167,9 @@ public class AddTaskActivity extends ActionBarActivity {
         remind = (Button) findViewById(R.id.reminder);
         ok = (ImageButton) findViewById(R.id.ok);
         cancel = (ImageButton) findViewById(R.id.cancel);
-
+        search = (ImageButton) findViewById(R.id.searchButton);
+        searchGPS = (ImageButton) findViewById(R.id.searcGPShButton);
+        gps = new GPSTracker(AddTaskActivity.this);
         year = (Spinner) findViewById(R.id.year);
         month = (Spinner) findViewById(R.id.month);
         date = (Spinner) findViewById(R.id.date);
